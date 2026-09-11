@@ -1,0 +1,25 @@
+{
+  "info": { "name": "Laboratorio 3 - Productos Electronicos", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "variable": [ { "key": "base", "value": "http://localhost:8080" } ],
+  "item": [
+    { "name": "Listar todos", "request": { "method": "GET", "url": "{{base}}/productos" } },
+    { "name": "Buscar por id", "request": { "method": "GET", "url": "{{base}}/productos/1" } },
+    { "name": "Filtrar por categoria", "request": { "method": "GET", "url": "{{base}}/productos/filtrar?categoria=laptop" } },
+    { "name": "Filtrar por marca", "request": { "method": "GET", "url": "{{base}}/productos/filtrar?marca=Apple" } },
+    { "name": "Filtrar por nombre", "request": { "method": "GET", "url": "{{base}}/productos/filtrar?nombre=galaxy" } },
+    { "name": "Filtrar por rango de precio", "request": { "method": "GET", "url": "{{base}}/productos/filtrar?precioMin=300&precioMax=1000" } },
+    { "name": "Filtrar solo con stock", "request": { "method": "GET", "url": "{{base}}/productos/filtrar?conStock=true" } },
+    { "name": "Filtro combinado", "request": { "method": "GET", "url": "{{base}}/productos/filtrar?categoria=celular&marca=Samsung&conStock=false" } },
+    { "name": "Crear producto", "request": { "method": "POST", "url": "{{base}}/productos",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Teclado K70\",\n  \"marca\": \"Corsair\",\n  \"categoria\": \"periferico\",\n  \"precio\": 129.99,\n  \"stock\": 7\n}" } } },
+    { "name": "Actualizar producto", "request": { "method": "PUT", "url": "{{base}}/productos/1",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Laptop ROG Strix G16\",\n  \"marca\": \"Asus\",\n  \"categoria\": \"laptop\",\n  \"precio\": 1699.99,\n  \"stock\": 4\n}" } } },
+    { "name": "Eliminar producto", "request": { "method": "DELETE", "url": "{{base}}/productos/9" } },
+    { "name": "Usuarios - listar", "request": { "method": "GET", "url": "{{base}}/usuarios" } },
+    { "name": "Evento - validarAcceso", "request": { "method": "POST", "url": "{{base}}/api/evento/validarAcceso",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{ \"edad\": 20, \"pago\": true }" } } }
+  ]
+}
